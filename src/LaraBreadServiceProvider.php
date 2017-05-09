@@ -2,6 +2,7 @@
 
 namespace Rukhsar\LaraBread;
 
+
 use Illuminate\Support\ServiceProvider;
 
 /**
@@ -15,6 +16,7 @@ class LaraBreadServiceProvider extends ServiceProvider
      * @var bool
      */
     protected $defer = true;
+
     /**
      * Bootstrap the application services.
      *
@@ -32,6 +34,8 @@ class LaraBreadServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind('larabread', function () {
+            return new LaraBread();
+        });
     }
 }
