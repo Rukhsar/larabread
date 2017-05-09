@@ -4,8 +4,17 @@ namespace Rukhsar\LaraBread;
 
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class LaraBreadServiceProvider
+ * @package Rukhsar\LaraBread
+ * @author Rukhsar Manzoor <rukhsar.man@gmail.com>
+ */
 class LaraBreadServiceProvider extends ServiceProvider
 {
+    /**
+     * @var bool
+     */
+    protected $defer = true;
     /**
      * Bootstrap the application services.
      *
