@@ -2,7 +2,9 @@
 
 namespace Rukhsar\LaraBread;
 
-class LaraBread
+use Rukhsar\LaraBread\Contracts\LaraBreadContract;
+
+class LaraBread implements LaraBreadContract
 {
     public function sayHello()
     {
