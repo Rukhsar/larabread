@@ -4,7 +4,7 @@ namespace Rukhsar\LaraBread;
 
 use Illuminate\Support\ServiceProvider;
 use Rukhsar\LaraBread\Contracts\LaraBreadContract;
-
+use Rukhsar\LaraBread\Contracts\LaraBreadFactoryContract;
 /**
  * Class LaraBreadServiceProvider
  * @package Rukhsar\LaraBread
@@ -36,5 +36,7 @@ class LaraBreadServiceProvider extends ServiceProvider
     {
         $this->app->singleton(LaraBreadContract::class, LaraBread::class);
         $this->app->alias(LaraBreadContract::class, 'larabread');
+        $this->app->singleton(LaraBreadFactoryContract::class, LaraBreadFactory::class);
+        $this->app->alias(LaraBreadFactoryContract::class, 'larabreadfactory');
     }
 }
