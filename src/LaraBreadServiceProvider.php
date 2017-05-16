@@ -24,7 +24,13 @@ class LaraBreadServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $viewPath = __DIR__. '/../../resources/views';
+
+        $this->loadViewsFrom($viewPath, 'larabread');
+
+        $this->publishes([
+            $viewPath => resource_path('views\vendor\larabread'),
+        ]);
     }
 
     /**
