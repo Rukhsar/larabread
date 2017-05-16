@@ -51,4 +51,39 @@ interface LaraBreadContract
      * @return mixed
      */
     public function clear();
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function exists($name);
+
+    /**
+     * @return mixed
+     */
+    public function breads();
+
+    /**
+     * @param $path
+     * @return mixed
+     */
+    public function setViewPath($path);
+
+    /**
+     * @param $template
+     * @return mixed
+     */
+    public function setTemplate($template);
+
+    /**
+     * @param null $template
+     * @return mixed
+     */
+    public function getFullViewPath($template = null);
+
+    /**
+     * @param null $template
+     * @return mixed
+     */
+    public function render($template = null);
 }

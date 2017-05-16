@@ -133,5 +133,76 @@ class LaraBread implements LaraBreadContract
         return $this;
     }
 
+    /**
+     * @param $name
+     * @return bool
+     */
+    public function exists($name)
+    {
+        return $this->breads->has($name);
+    }
 
+    /**
+     * @return \Illuminate\Support\Collection
+     */
+    public function breads()
+    {
+        return $this->breads;
+    }
+
+    /**
+     * @param $path
+     * @return $this
+     */
+    public function setViewPath($path)
+    {
+        $this->viewPath = $path;
+
+        return $this;
+    }
+
+    /**
+     * @param $template
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    /**
+     * @param null $template
+     * @return string
+     */
+    public function getFullViewPath($template = null)
+    {
+        if (is_null($template)) {
+            $template = $this->template;
+        }
+
+        $stop = mb_strlen($this->viewPath, -1);
+
+        if ($this->viewPath[$stop] == ':') {
+
+            return $this->viewPath.$template;
+        }
+
+        return $this->viewPath. '.' . $template;
+    }
+
+    /**
+     * @param null $template
+     * @return string
+     */
+    public function render($template = null)
+    {
+        return \view(
+            $this->getFullViewPath($template),
+            [
+                'breads' => $this->breads
+            ]
+        )->render();
+    }
 }
