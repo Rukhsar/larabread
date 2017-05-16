@@ -182,7 +182,7 @@ class LaraBread implements LaraBreadContract
             $template = $this->template;
         }
 
-        $stop = mb_strlen($this->viewPath, -1);
+        $stop = mb_strlen($this->viewPath) - 1;
 
         if ($this->viewPath[$stop] == ':') {
 
