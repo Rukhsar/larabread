@@ -100,5 +100,38 @@ class LaraBread implements LaraBreadContract
         return array_values($value);
     }
 
+    /**
+     * @param $name
+     * @param $url
+     * @return $this
+     */
+    public function prepend($name, $url)
+    {
+        $this->breads->prepend(new LaraBreadItem($name, $url), $name);
+
+        return $this;
+    }
+
+    /**
+     * @param $name
+     * @return $this
+     */
+    public function remove($name)
+    {
+        $this->breads->forget($name);
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function clear()
+    {
+        $this->breads = collect([]);
+
+        return $this;
+    }
+
 
 }

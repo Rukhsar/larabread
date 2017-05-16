@@ -33,4 +33,22 @@ interface LaraBreadContract
      * @return mixed
      */
     public function getDataFromMixed($key, $value);
+
+    /**
+     * @param $name
+     * @param $url
+     * @return mixed
+     */
+    public function prepend($name, $url);
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function remove($name);
+
+    /**
+     * @return mixed
+     */
+    public function clear();
 }
