@@ -27,7 +27,7 @@ into aliases section.
 If you want to customize the default breadcrumb template then you can publish the breadcrumb views using below command.
 
 ```
-php artisan vendor:publish
+php artisan vendor:publish --provider="Rukhsar\LaraBread\LaraBreadServiceProvider"
 ```
 
 this will place the template file in `vendor/larabread`.
@@ -66,4 +66,11 @@ class PageController extends Controller
     }
 }
 ```
+
+To display breadcrumbs use below in your blade template.
+
+```php
+{!! LaraBread::render() !!}
+```
+
 
