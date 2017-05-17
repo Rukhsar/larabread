@@ -32,3 +32,38 @@ php artisan vendor:publish
 
 this will place the template file in `vendor/larabread`.
 
+## Usage
+
+You can use this package to create breadcrumbs using following.
+
+```php
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use Rukhsar\LaraBread\Contracts\LaraBreadContract;
+use Rukhsar\LaraBread\LaraBreadItem;
+
+class PageController extends Controller
+{
+    public function index(LaraBreadContract $breadcrumbs)
+    {
+        $breadcrumbs->addBread([
+            new LaraBreadItem('Home', '/'),
+        ]);
+
+        return view('welcome');
+    }
+
+    public function page1(LaraBreadContract $breadcrumbs)
+    {
+        $breadcrumbs->addBread([
+            new LaraBreadItem('Home', '/'),
+            new LaraBreadItem('Page1','/page1'),
+        ]);
+        return view('page1');
+    }
+}
+```
+
